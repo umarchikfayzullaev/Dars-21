@@ -16,6 +16,12 @@ formElement.addEventListener("submit", event => {
 
 function renderArray(array) {
     for(let item in array) {
+        const newTrElement = document.createElement("tr");
+        const newTodoNameElement = document.createElement("td");
+        const newButtonWrapperTdElement = document.createElement("td");
+        const newDoneButtonElement = document.createElement("button");
+        const newRemoveButtonElement = document.createElement("button");
+
         
     }
 }
