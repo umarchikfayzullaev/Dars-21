@@ -39,6 +39,16 @@ function renderArray(array) {
         newRemoveButtonElement.classList.add('btn', 'btn-danger')
         newRemoveButtonElement.textContent = "Remove"
 
+        newRemoveButtonElement.addEventListener('click',event =>{
+            data.splice(item, 1)
+            renderArray(data)
+        })
+
+        newDoneButtonElement.addEventListener('click', event =>{
+            data[item] ["isDone"] = true
+            renderArray(data)
+        })
+
         newButtonWrapperTdElement.appendChild(newDoneButtonElement)
         newButtonWrapperTdElement.appendChild(newRemoveButtonElement)
 
