@@ -2,26 +2,31 @@ const formElement = document.querySelector('.form')
 const todoNameElement = document.querySelector('.todo-name')
 const tbodyElement = document.querySelector("#tbody")
 
+const data = JSON.parse(localStorage.getItem("data")) || []
+
+renderArray(data)
+
 formElement.addEventListener("submit", event => {
     event.preventDefault();
     
     if (todoNameInputElement.value.length > 0) {
         data.push({
-            name: todoNameElement.value,
+            name: todoNameInputElement.value,
             isDone: false
         })
+        
         renderArray(data)
     }
 })
 
 function renderArray(array) {
+    localStorage.setItem("data", JSON.stringify(array))
     tbodyElement.textContent = ""
     for(let item in array) {
         const newTrElement = document.createElement("tr");
         if(data [item] ["isDone"]) {
             newTrElement.classList.add("table-success")
         }
-        const newTrElement = document.createElement("tr");
         const newTodoNameElement = document.createElement("td");
         newTodoNameElement.textContent = data[item] ["name"];
         const newButtonWrapperTdElement = document.createElement("td");
